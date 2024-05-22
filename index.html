@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>CSV Upload and Display</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
     <div class="form-container">
-        <h2>Upload CSV to Add Sizes</h2>
-        <form action="#" method="post" enctype="multipart/form-data" id="upload-add-form">
-            <input type="file" name="file" id="add-file-input" accept=".csv" required>
-            <input type="submit" value="Upload CSV">
+        <h2>Upload CSV or Excel to Add Sizes</h2>
+        <form id="upload-add-form" enctype="multipart/form-data">
+            <input type="file" id="add-file-input" accept=".csv,.xls,.xlsx" required>
+            <input type="submit" value="Upload File">
         </form>
 
-        <h2>Upload CSV to Remove Sizes</h2>
-        <form action="#" method="post" enctype="multipart/form-data" id="upload-remove-form">
-            <input type="file" name="file" id="remove-file-input" accept=".csv" required>
-            <input type="submit" value="Upload CSV">
+        <h2>Upload CSV or Excel to Remove Sizes</h2>
+        <form id="upload-remove-form" enctype="multipart/form-data">
+            <input type="file" id="remove-file-input" accept=".csv,.xls,.xlsx" required>
+            <input type="submit" value="Upload File">
         </form>
     </div>
 
     <div class="form-container">
         <h2>Manually Add Sizes</h2>
-        <form action="#" method="post" id="add-sizes-form">
+        <form id="add-sizes-form">
             <div id="add-sizes-section">
+                <!-- Initial set of size and count fields -->
                 <div class="size-entry">
                     <label for="size">Enter size:</label>
                     <input type="text" name="size" required>
@@ -31,13 +34,16 @@
                     <input type="number" name="count" min="1" required>
                 </div>
             </div>
-            <button type="button" id="add-sizes-btn">Add Row</button>
+            <button type="button" id="add-sizes-btn">Add Sizes</button>
             <input type="submit" value="Submit">
         </form>
+    </div>
 
+    <div class="form-container">
         <h2>Manually Remove Sizes</h2>
-        <form action="#" method="post" id="remove-sizes-form">
+        <form id="remove-sizes-form">
             <div id="remove-sizes-section">
+                <!-- Initial set of size and count fields -->
                 <div class="remove-size-entry">
                     <label for="remove-size">Enter size:</label>
                     <input type="text" name="remove-size" required>
@@ -45,24 +51,24 @@
                     <input type="number" name="remove-count" min="1" required>
                 </div>
             </div>
-            <button type="button" id="add-remove-sizes-btn">Add Row</button>
-            <input type="submit" value="Submit">
+            <button type="button" id="add-remove-sizes-btn">Add Sizes</button>
+            <input type="submit" value="Remove Size">
         </form>
     </div>
 
-    <h2>Size Counts</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Size</th>
-                <th>Count</th>
-            </tr>
-        </thead>
-        <tbody id="size-counts-body">
-            <!-- JavaScript will populate this table -->
-        </tbody>
-    </table>
-
-    <script src="script.js"></script>
+    <div>
+        <h2>Size Counts</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Size</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody id="size-counts-body">
+                <!-- Size counts will be dynamically populated here -->
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
