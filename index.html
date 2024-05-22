@@ -6,17 +6,22 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h2>Upload CSV to Add Sizes</h2>
     <div class="form-container">
-        <form id="upload-add-form">
-            <input type="file" id="add-file-input" accept=".csv" required>
-            <input type="submit" value="Upload CSV">
-        </form>
+        <div class="csv-container" name="csv-add">
+            <h2>Upload CSV to Add Sizes</h2>
+            <form action="/upload_add" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv" required>
+                <input type="submit" value="Upload CSV">
+            </form>
+            </div>
 
-        <form id="upload-remove-form">
-            <input type="file" id="remove-file-input" accept=".csv" required>
-            <input type="submit" value="Upload CSV">
-        </form>
+            <div class="csv-container" name="csv-remove">
+            <h2>Upload CSV to Remove Sizes</h2>
+            <form action="/upload_remove" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv" required>
+                <input type="submit" value="Upload CSV">
+            </form>
+        </div>
     </div>
 
     <h2>Manually Add Sizes</h2>
