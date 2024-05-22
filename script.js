@@ -43,6 +43,32 @@ document.addEventListener("DOMContentLoaded", () => {
         updateTable();
     });
 
+    document.getElementById("add-sizes-btn").addEventListener("click", () => {
+        const container = document.getElementById("add-sizes-section");
+        const newField = document.createElement("div");
+        newField.classList.add("size-entry");
+        newField.innerHTML = `
+            <label for="size">Enter size:</label>
+            <input type="text" name="size" required>
+            <label for="count">Enter count:</label>
+            <input type="number" name="count" min="1" required>
+        `;
+        container.appendChild(newField);
+    });
+
+    document.getElementById("add-remove-sizes-btn").addEventListener("click", () => {
+        const container = document.getElementById("remove-sizes-section");
+        const newField = document.createElement("div");
+        newField.classList.add("remove-size-entry");
+        newField.innerHTML = `
+            <label for="remove-size">Enter size:</label>
+            <input type="text" name="remove-size" required>
+            <label for="remove-count">Enter count:</label>
+            <input type="number" name="remove-count" min="1" required>
+        `;
+        container.appendChild(newField);
+    });
+
     function handleFileUpload(fileInput, isAdd) {
         if (fileInput.files.length === 0) return;
 
