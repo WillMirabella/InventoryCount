@@ -3,57 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>CSV Upload and Display</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="form-container">
-        <div class="csv-container" name="csv-add">
-            <h2>Upload CSV to Add Sizes</h2>
-            <form action="/upload_add" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" accept=".csv" required>
-                <input type="submit" value="Upload CSV">
-            </form>
-            </div>
+        <h2>Upload CSV to Add Sizes</h2>
+        <form action="#" method="post" enctype="multipart/form-data" id="upload-add-form">
+            <input type="file" name="file" id="add-file-input" accept=".csv" required>
+            <input type="submit" value="Upload CSV">
+        </form>
 
-            <div class="csv-container" name="csv-remove">
-            <h2>Upload CSV to Remove Sizes</h2>
-            <form action="/upload_remove" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" accept=".csv" required>
-                <input type="submit" value="Upload CSV">
-            </form>
-        </div>
+        <h2>Upload CSV to Remove Sizes</h2>
+        <form action="#" method="post" enctype="multipart/form-data" id="upload-remove-form">
+            <input type="file" name="file" id="remove-file-input" accept=".csv" required>
+            <input type="submit" value="Upload CSV">
+        </form>
     </div>
 
-    <h2>Manually Add Sizes</h2>
-    <form id="add-sizes-form">
-        <div id="add-sizes-section">
-            <div class="size-entry">
-                <label for="size">Enter size:</label>
-                <input type="text" name="size" required>
-                <label for="count">Enter count:</label>
-                <input type="number" name="count" min="1" required>
+    <div class="form-container">
+        <h2>Manually Add Sizes</h2>
+        <form action="#" method="post" id="add-sizes-form">
+            <div id="add-sizes-section">
+                <div class="size-entry">
+                    <label for="size">Enter size:</label>
+                    <input type="text" name="size" required>
+                    <label for="count">Enter count:</label>
+                    <input type="number" name="count" min="1" required>
+                </div>
             </div>
-        </div>
-        <button type="button" id="add-sizes-btn">Add Sizes</button>
-        <input type="submit" value="Submit">
-    </form>
+            <button type="button" id="add-sizes-btn">Add Sizes</button>
+            <input type="submit" value="Submit">
+        </form>
 
-    <h2>Manually Remove Sizes</h2>
-    <form id="remove-sizes-form">
-        <div id="remove-sizes-section">
-            <div class="remove-size-entry">
-                <label for="remove-size">Enter size:</label>
-                <input type="text" name="remove-size" required>
-                <label for="remove-count">Enter count:</label>
-                <input type="number" name="remove-count" min="1" required>
+        <h2>Manually Remove Sizes</h2>
+        <form action="#" method="post" id="remove-sizes-form">
+            <div id="remove-sizes-section">
+                <div class="remove-size-entry">
+                    <label for="remove-size">Enter size:</label>
+                    <input type="text" name="remove-size" required>
+                    <label for="remove-count">Enter count:</label>
+                    <input type="number" name="remove-count" min="1" required>
+                </div>
             </div>
-        </div>
-        <button type="button" id="add-remove-sizes-btn">Add Sizes</button>
-        <input type="submit" value="Remove Size">
-    </form>
+            <button type="button" id="add-remove-sizes-btn">Add Sizes</button>
+            <input type="submit" value="Remove Size">
+        </form>
+    </div>
 
     <h2>Size Counts</h2>
-    <table border="1" id="size-counts-table">
+    <table border="1">
         <thead>
             <tr>
                 <th>Size</th>
@@ -61,7 +59,7 @@
             </tr>
         </thead>
         <tbody id="size-counts-body">
-            <!-- Dynamic content will be inserted here -->
+            <!-- JavaScript will populate this table -->
         </tbody>
     </table>
 

@@ -62,3 +62,26 @@ th, td {
 th {
     background-color: #f2f2f2;
 }
+
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="file"],
+input[type="text"],
+input[type="number"],
+input[type="submit"],
+button {
+    margin: 5px;
+}
+
